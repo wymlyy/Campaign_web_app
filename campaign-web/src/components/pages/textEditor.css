@@ -1,0 +1,119 @@
+.selectInfo, .otherInfo {
+    display: flex;
+    width: 100%;
+}
+
+.errors {
+    color:red;
+    margin-top: -25px;
+    margin-bottom: 25px;
+}
+
+.errors-content {
+    color:red;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.postTitle {
+    width: 100%;
+}
+
+label {
+    color: #313e41 !important;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.postPageTitle {
+    margin-bottom: 55px;
+    color: #313e41;
+    font-size: 2.5rem;
+}
+
+.authorName > label {
+    display: block;
+}
+
+.uploadCover {
+    cursor: pointer;
+    background-color: #edde44;
+    padding: 3px 6px;
+    border: none;
+    color: #000;
+    border-radius: 5px;
+}
+
+.uploadCover:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.topic, .datepick, .locationInput, .author, .titleInput {
+    width: 100%;
+    margin-bottom: 35px;
+    margin-top: 10px;
+    padding: 9px;
+    border-radius: 5px;
+    border: solid 1px #5a5a5a !important;
+    color: #5a5a5a;
+}
+
+.author {
+    padding: 6px;
+}
+
+.rdw-editor-toolbar, .rdw-option-wrapper, .rdw-dropdown-wrapper {
+    border-color: #5a5a5a !important;
+    border-radius: 5px !important;
+}
+
+.rdw-editor-toolbar {
+    border-radius: 5px 5px 0 0 !important;
+}
+
+.topic:focus, .datepick:focus, .locationInput:focus, .author:focus, .titleInput:focus {
+    outline-color: #edde44;
+}
+
+.selectTopic, .campaignLocation {
+    flex: 6;
+    margin-right: 10px;
+}
+
+.selectTime, .authorName {
+    flex: 6;
+    margin-left: 10px;
+}
+
+.postBtnContainer {
+    text-align: right;
+}
+
+.postButton {
+    width: 100%;
+    height: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    #354347 40%,
+    #242D2F 60%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.postButton:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      #6b878f 30%,
+      #5c7379 100%
+    );
+    transition: all 0.4s ease-out;
+  }

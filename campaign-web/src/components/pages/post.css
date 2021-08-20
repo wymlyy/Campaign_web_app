@@ -1,0 +1,209 @@
+
+
+.overlay {
+    background-color: rgba(0,0,0,0.6);
+    height: 27vh;
+    margin-top: -20px;
+    justify-content: center;
+}
+
+.infoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.posttitle {
+    padding-bottom: 15px;
+}
+
+.lineOne {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: center; 
+    padding-right: 35px;     
+}
+
+.lineTwo {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: center;        
+}
+
+.postText {
+    padding-bottom: 30px;
+    border-bottom: solid 1px #000;
+    
+}
+
+.textContent p {
+    padding-bottom: 1.3rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.textContent li {
+    padding-bottom: 0.6rem;
+    line-height: 1.7rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.modifyPost {
+    display: flex;
+}
+
+.deletePost {
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.deletePostBtn {
+    cursor: pointer;
+    padding: 5px;
+    color: #fff;
+    background-color: #edde44;
+    border: none;
+    border-radius: 6px;
+}
+
+.deletePostBtn {
+    cursor: pointer;
+    padding: 7px;
+    color: #000;
+    background-color: #edde44;
+    border: none;
+    border-radius: 6px;
+}
+
+.deletePostBtn:hover {
+    background-color: #354347;
+    color: #fff;
+}
+
+.postComment {
+    width: 77%;
+    margin: 0 auto;
+    padding: 1.5rem 26px;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.commentTitle {
+    font-size: 25px;
+    text-align: left;
+    padding-bottom: 20px;
+    padding-top: 20px;;
+}
+
+.addComment textarea {
+    width:100%;
+    height: 8vh;
+    padding: 8px;
+}
+
+.addComment textarea:focus {
+    outline-color: #edde44;
+}
+
+.commentButton {
+    text-align: right;
+    padding-bottom: 30px;
+}
+
+.postButton {
+    width: 30%;
+}
+
+.commentUser {
+    display: block;
+    width:100%;
+    background-color: #354347;
+    color: #fff !important;
+    padding: 8px 6px;
+}
+
+.dateposted {
+    float: right;
+    padding-right: 10px;
+}
+
+.comment {
+    margin-bottom: 20px;
+    background-color: #f2f2f2;
+}
+
+.textOfComment {
+    padding: 8px 6px;
+    padding-bottom: 10px;
+}
+
+.commentBtnContainer {
+    text-align: right;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+.deleteIcon{
+    cursor: pointer;
+
+}
+
+.deleteIcon:hover{
+    color:#c96363;
+}
+
+.commentBtn {
+    cursor: pointer;
+    width: 30%;
+    height: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    #354347 40%,
+    #242D2F 60%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.commentBtn:hover {
+    cursor: pointer;
+    background: linear-gradient(
+      90deg,
+      #6b878f 30%,
+      #5c7379 100%
+    );
+    transition: all 0.4s ease-out;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltipText {
+    visibility: hidden;
+    width: 100px;
+    background-color: #fff;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px 0;
+    margin-top: -20px;
+    margin-left: 1px;
+    position: absolute;
+    z-index: 1;
+    transition: background-color 3s;
+    
+  }
+  
+  .tooltip:hover .tooltipText {
+    visibility: visible;
+    background-color: #354347;
+    
+  }

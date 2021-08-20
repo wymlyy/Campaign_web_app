@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+
+
+.home,
+.campaigns,
+.products,
+.sign-up {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.campaigns {
+  background-image: url('/images/img-2.jpg');
+  display: block;
+  padding-top: 20px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 27vh;
+  color: #fff;
+  font-size: 36px;
+}
+
+.Profile {
+  background-image: url('/images/img-1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.sign-up {
+  background-image: url('/images/img-8.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.editor {
+  width: 100%;
+  margin-top: 30px;
+  padding: 20px 20%;
+
+}
+
+.rdw-editor-main {
+  height: 60vh !important;
+  border: solid 1px #5a5a5a;
+  border-radius: 0 0 5px 5px !important;
+  padding: 10px;
+}
+
+.footerWrite {
+  display: block;
+}
+
+.listOfPosts {
+  padding-bottom: 45px;
+}
+
+.popupAvatar {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 20px;
+  left: 0;
+}
+
+.avatarContainer {
+  position: relative;
+  width: 35%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 50px 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.close-icon {
+  content: 'x';
+  cursor: pointer;
+  position: fixed;
+  right: calc(32.5%);
+  top: calc(100vh - 85vh);
+  background: #000;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+}
+
+.userImg {
+  cursor: pointer;
+  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  margin-top: 25px;
+  border-radius: 50%;
+}
+
+.userImg2 {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-top: 25px;
+  border-radius: 50%;
+}
+
+.avatarContainer input[type="file"]{
+  display: none;
+}
+
+.uploadPic {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.uploadIconText {
+    display: flex;
+    vertical-align: middle;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    color: #000 !important;
+    background-color: #edde44;
+    border: none;
+    padding: 0.5rem;
+    margin-right: 25px;
+    border-radius: 5px;  
+}
+
+.uploadIconText:hover {
+  background-color: #000;
+  color: #fff !important;
+}
+
+.uploadIcon {
+  align-self: center;
+  margin-right: 5px;
+}
+
+.postList {
+  padding: 10px 20%;
+  
+}
+
+.postHis {
+  padding-left:  20%;
+  margin-bottom: 15px;
+}
+
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  background-color: #354347;
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 8px 8px 0 0;
+}
+
+.listFooter {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #edde44;
+  padding: 6px 20px;
+  border-radius: 0 0 8px 8px;
+}
+
+.viewBtn, .deleteBtn {
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+}
+
+.viewBtn:hover {
+  color: #2963c5;
+}
+
+.deleteBtn:hover {
+  color: #c52933;
+}
+
+.passContainer {
+  text-align: center;
+  justify-content: center;
+}
+
+.changePassword {
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #000;
+  background-color: #edde44;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;  
+}
+
+.changePassword:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.passwordInput {
+  margin-top: 10vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.passOld, .passNew {
+  margin-bottom: 15px;
+}
+
+.inputOld, .inputNew {
+  padding: 7px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.btnSave {
+  cursor: pointer;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #354347;
+  color: #fff;
+}
+
+.btnSave:hover {
+  background-color: #000;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
