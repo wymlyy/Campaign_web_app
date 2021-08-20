@@ -31,6 +31,15 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+connection.connection(function (err) {
+  if (err) {
+    console.error('Database connection failed: ' + err.stack);
+    return;
+  }
+  console.log('Connected to database.');
+});
+connection.end()
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
