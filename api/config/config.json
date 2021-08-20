@@ -14,10 +14,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "admin",
+    "password": "wymldh20121216",
+    "database": "campaignwithus",
+    "host": "campaign-web-app-database.cp7x0puydawy.us-east-2.rds.amazonaws.com",
+    "port": 3306,
     "dialect": "mysql"
   }
 }
