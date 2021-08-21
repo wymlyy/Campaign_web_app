@@ -16,13 +16,13 @@ function MyProfile() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    axios.get(`//campaignwithus.ml:8080/auth/basicinfo/${authState.id}`).then((response) => {
+    axios.get(`https://campaignwithus.ml:8080/auth/basicinfo/${authState.id}`).then((response) => {
       setUsername(response.data.username);
       setAvatar(response.data.avatar);
     });
 
 
-    axios.get(`//campaignwithus.ml:8080/posts/byUserId/${authState.id}`).then((response) => {
+    axios.get(`https://campaignwithus.ml:8080/posts/byUserId/${authState.id}`).then((response) => {
       setListOfPosts(response.data);
     });
 
@@ -30,7 +30,7 @@ function MyProfile() {
 
   const changeAvatar = () => {
     axios.put(
-      "//campaignwithus.ml:8080/auth/avatar",
+      "https://campaignwithus.ml:8080/auth/avatar",
       {
         newAvatar: avatar,
         username: username,
@@ -68,7 +68,7 @@ function MyProfile() {
 
   const deletePost = (id) => {
     axios
-      .delete(`//campaignwithus.ml:8080/posts/${id}`, {
+      .delete(`https://campaignwithus.ml:8080/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {

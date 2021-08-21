@@ -18,7 +18,7 @@ function HeroSection() {
   let history = useHistory();
 
   useEffect(() => {
-    axios.get("//campaignwithus.ml:8080/auth/verification", {
+    axios.get("https://campaignwithus.ml:8080/auth/verification", {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
       }

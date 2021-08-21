@@ -118,26 +118,6 @@ router.put("/cover", validateToken, async (req, res) => {
   res.json(newCover);
 });
 
-
-
-// router.put("/:postId", validateToken, async (req, res) => {
-//   try {
-//     const updatePost = await Posts.findById(req.params.postId);
-
-//     await updatePost.updateOne({ $set: req.body }, {
-//       where: {
-//         id: postId,
-//       }
-//     });
-
-
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-
-
-// });
-
 router.get("/byUserId/:id", async (req, res) => {
   const id = req.params.id;
   const listOfPosts = await Posts.findAll({

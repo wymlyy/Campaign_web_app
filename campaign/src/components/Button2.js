@@ -1,15 +1,3 @@
-// import React from 'react';
-// import './Button.css';
-// import { Link } from 'react-router-dom';
-
-// export function Button() {
-//   return (
-//     <Link to='sign-up'>
-//       <button className='btn'>Sign Up</button>
-//     </Link>
-//   );
-// }
-
 import React from 'react';
 import './Button.css';
 
@@ -29,16 +17,16 @@ export const Button2 = ({
 
   const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
-  return  (
-    
-      <button
-        className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-        onClick={onClick}
-        type={type}
-      >
-        {children}
-      </button>
-    
+  return (
+
+    <button
+      className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+      onClick={onClick}
+      type={type}
+    >
+      {children}
+    </button>
+
   );
-  
+
 };

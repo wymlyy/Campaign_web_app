@@ -19,18 +19,18 @@ export default function Post() {
 
 
     useEffect(() => {
-        axios.get(`//campaignwithus.ml:8080/posts/byId/${id}`).then((response) => {
+        axios.get(`https://campaignwithus.ml:8080/posts/byId/${id}`).then((response) => {
             setPostObject(response.data);
         });
 
-        axios.get(`//campaignwithus.ml:8080/comments/${id}`).then((response) => {
+        axios.get(`https://campaignwithus.ml:8080/comments/${id}`).then((response) => {
             setComments(response.data);
         });
 
     }, []);
     const addComment = () => {
 
-        axios.post("//campaignwithus.ml:8080/comments/", { commentText: newComment, PostId: id },
+        axios.post("https://campaignwithus.ml:8080/comments/", { commentText: newComment, PostId: id },
             {
                 headers: {
                     accessToken: localStorage.getItem("accessToken"),
@@ -53,7 +53,7 @@ export default function Post() {
 
     const deleteComment = (commentId) => {
 
-        axios.delete(`//campaignwithus.ml:8080/comments/${commentId}`, {
+        axios.delete(`https://campaignwithus.ml:8080/comments/${commentId}`, {
             headers: { accessToken: localStorage.getItem("accessToken") },
         })
             .then(() => {
@@ -67,7 +67,7 @@ export default function Post() {
 
     const deletePost = (id) => {
         axios
-            .delete(`//campaignwithus.ml:8080/posts/${id}`, {
+            .delete(`https://campaignwithus.ml:8080/posts/${id}`, {
                 headers: { accessToken: localStorage.getItem("accessToken") },
             })
             .then(() => {
@@ -88,7 +88,7 @@ export default function Post() {
     //     if (option === "title") {
     //         let newTitle = prompt("Enter New Title:");
     //         axios.put(
-    //             "//campaignwithus.ml:8080/posts/title",
+    //             "https://campaignwithus.ml:8080/posts/title",
     //             {
     //                 newTitle: newTitle,
     //                 id: id,

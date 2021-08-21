@@ -22,7 +22,7 @@ function FormSignup() {
   });
 
   const onSubmit = (data) => {
-    axios.post("//campaignwithus.ml:8080/auth", data).then(() => {
+    axios.post("https://campaignwithus.ml:8080/auth", data).then(() => {
       console.log(data);
       window.location.href = '/success-form';
     });
