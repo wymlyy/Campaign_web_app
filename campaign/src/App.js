@@ -26,7 +26,7 @@ function App() {
     status: false,
   });
   useEffect(() => {
-
+    document.title = "Campaign with Us";
     axios.get("http://campaignwithus.ml:8080/auth/verification", {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
