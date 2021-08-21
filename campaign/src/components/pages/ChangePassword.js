@@ -9,7 +9,7 @@ function ChangePassword() {
     const changePassword = () => {
         axios
             .put(
-                "https://campaignwithus.ml:8080/auth/changepassword",
+                "http://campaignwithus.ml:8080/auth/changepassword",
                 {
                     oldPassword: oldPassword,
                     newPassword: newPassword,

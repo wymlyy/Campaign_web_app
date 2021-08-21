@@ -84,13 +84,13 @@ const useForm3 = (callback, validate) => {
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
 
-        Axios.post('https://campaignwithus.ml:8080/posts', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
+        Axios.post('http://campaignwithus.ml:8080/posts', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
           headers: { accessToken: localStorage.getItem("accessToken") },
         }).then((response) => {
           window.location.href = '/write';
         });
 
-        Axios.post('https://campaignwithus.ml:8080/posts/visitors', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
+        Axios.post('http://campaignwithus.ml:8080/posts/visitors', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
           headers: { accessToken: localStorage.getItem("accessToken") },
         }).then((response) => {
           window.location.href = '/write';
