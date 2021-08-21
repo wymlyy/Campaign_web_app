@@ -167,6 +167,10 @@ h1, .campaignTitle {
     color: #354347;
 }
 
+.homeCard2 .cards_item_dateTime {
+  width: 100%;
+}
+
 .cards_item_footer {
   display: flex;
   justify-content: space-between;
