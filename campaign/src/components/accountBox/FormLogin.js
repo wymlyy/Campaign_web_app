@@ -11,7 +11,7 @@ function FormLogin() {
     const login = (e) => {
         e.preventDefault();
         const data = { username: username, password: password };
-        axios.post("http://campaignwithus.ml:8080/auth/login", data).then((response) => {
+        axios.post("//campaignwithus.ml:8080/auth/login", data).then((response) => {
             if (response.data.error) {
                 alert(response.data.error);
             } else {
