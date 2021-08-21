@@ -28,6 +28,7 @@ function FormLogin() {
         });
     };
     return (
+        
         <div className="form-content-right">
             <form className='form'>
                 <h1>
@@ -56,7 +57,8 @@ function FormLogin() {
                     Don't have an account? Signup <Link to='/sign-up'>here</Link>
                 </span>
             </form>
-        </div>
+            </div>
+            
     );
 }
 

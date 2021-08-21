@@ -168,3 +168,21 @@
   color: #27cdff;
   font-weight: 600;
 }
+
+@media screen and (max-width: 960px) {
+  .form-content-left {
+    display: none;
+  }
+
+  .form-content-right {
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    background: linear-gradient(90deg, rgb(237,222,68) 0%, rgb(237,222,68) 100%);
+    width: 100%;
+    margin: 0px;
+  }
+  .form-container {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+}

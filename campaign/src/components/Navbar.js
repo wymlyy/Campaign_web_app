@@ -49,8 +49,9 @@ function Navbar() {
           status: true,
         });
         axios.get(`http://3.16.1.56:8080/auth/basicinfo/${response.data.id}`).then((response) => {
-
-          setAvatar(response.data.avatar);
+          if (response.data != null) {
+            setAvatar(response.data.avatar);
+          }
 
         });
       }

@@ -196,4 +196,14 @@
     color: #242424;
     transition: 250ms;
   }
+
+  .userNav {
+    padding: 0;
+    margin: 0;
+  }
+
+  .avatarPic {
+    margin-right: 0;
+    margin-left: 15px;
+  }
 }

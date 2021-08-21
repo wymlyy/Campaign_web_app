@@ -117,3 +117,20 @@ label {
     );
     transition: all 0.4s ease-out;
   }
+
+  @media screen and (max-width: 960px) {
+    .author {
+        padding: 0;
+    }
+
+    .editor {
+        padding: 20px 10%;
+    }
+
+    .uploadFile {
+        width: 100%;
+        border-radius: 5px;
+        padding: 7px;
+    }
+
+  }
