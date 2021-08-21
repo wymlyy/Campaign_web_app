@@ -18,7 +18,7 @@ function HeroSection() {
   let history = useHistory();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/auth/verification", {
+    axios.get("http://localhost:8080/auth/verification", {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
       }
@@ -55,8 +55,8 @@ function HeroSection() {
               buttonStyle='btn--signup'
               buttonSize='btn--large'
             >{authState.status ? (<Link to='/write' style={{ textDecoration: 'none' }}><img className='hero-btns-img' src='images/create.png' alt=' ' height='27' />&nbsp;&nbsp;<span className='hero-btn-text'>Create a Campaign</span></Link>) :
-                ((<Link to='/login' onClick={() => {
-                  history.push('/login')
+              ((<Link to='/login' onClick={() => {
+                history.push('/login')
               }} style={{ textDecoration: 'none' }}><img className='hero-btns-img' src='images/create.png' alt=' ' height='27' />&nbsp;&nbsp;<span className='hero-btn-text'>Create a Campaign</span></Link>))}
             </Button2>
           </AuthContext.Provider>

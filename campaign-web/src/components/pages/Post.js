@@ -19,18 +19,18 @@ export default function Post() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/posts/byId/${id}`).then((response) => {
+        axios.get(`http://localhost:8080/posts/byId/${id}`).then((response) => {
             setPostObject(response.data);
         });
 
-        axios.get(`http://localhost:5000/comments/${id}`).then((response) => {
+        axios.get(`http://localhost:8080/comments/${id}`).then((response) => {
             setComments(response.data);
         });
 
     }, []);
     const addComment = () => {
 
-        axios.post("http://localhost:5000/comments/", { commentText: newComment, PostId: id },
+        axios.post("http://localhost:8080/comments/", { commentText: newComment, PostId: id },
             {
                 headers: {
                     accessToken: localStorage.getItem("accessToken"),
@@ -53,7 +53,7 @@ export default function Post() {
 
     const deleteComment = (commentId) => {
 
-        axios.delete(`http://localhost:5000/comments/${commentId}`, {
+        axios.delete(`http://localhost:8080/comments/${commentId}`, {
             headers: { accessToken: localStorage.getItem("accessToken") },
         })
             .then(() => {
@@ -67,7 +67,7 @@ export default function Post() {
 
     const deletePost = (id) => {
         axios
-            .delete(`http://localhost:5000/posts/${id}`, {
+            .delete(`http://localhost:8080/posts/${id}`, {
                 headers: { accessToken: localStorage.getItem("accessToken") },
             })
             .then(() => {
@@ -88,7 +88,7 @@ export default function Post() {
     //     if (option === "title") {
     //         let newTitle = prompt("Enter New Title:");
     //         axios.put(
-    //             "http://localhost:5000/posts/title",
+    //             "http://localhost:8080/posts/title",
     //             {
     //                 newTitle: newTitle,
     //                 id: id,
@@ -97,7 +97,7 @@ export default function Post() {
     //                 headers: { accessToken: localStorage.getItem("accessToken") },
     //             }
     //         )
-    
+
     //         setPostObject({ ...postObject, title: newTitle });
     //     }
     // }
@@ -124,30 +124,30 @@ export default function Post() {
                 </div>
                 <div className='postComment'>
                     <div className='modifyPost'>
-                    <div className="deletePost">
-                        {authState.username === postObject.username && (
-                            <button className='deletePostBtn'
-                                onClick={() => {
-                                    editPost(postObject.id);
-                                }}
-                            >
-                                Edit Post
-                            </button>
-                        )}
+                        <div className="deletePost">
+                            {authState.username === postObject.username && (
+                                <button className='deletePostBtn'
+                                    onClick={() => {
+                                        editPost(postObject.id);
+                                    }}
+                                >
+                                    Edit Post
+                                </button>
+                            )}
+                        </div>
+                        <div className="deletePost">
+                            {authState.username === postObject.username && (
+                                <button className='deletePostBtn'
+                                    onClick={() => {
+                                        deletePost(postObject.id);
+                                    }}
+                                >
+                                    Delete Post
+                                </button>
+                            )}
+                        </div>
                     </div>
-                    <div className="deletePost">
-                        {authState.username === postObject.username && (
-                            <button className='deletePostBtn'
-                                onClick={() => {
-                                    deletePost(postObject.id);
-                                }}
-                            >
-                                Delete Post
-                            </button>
-                        )}
-                    </div>
-                </div>
-                
+
                     <div className='postText'>
                         <div className='textContent'>{ReactHtmlParser(postObject.postText)}</div>
 

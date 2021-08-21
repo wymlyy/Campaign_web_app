@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { EditorState,convertToRaw } from "draft-js";
+import { EditorState, convertToRaw } from "draft-js";
 import { stateToHTML } from "draft-js-export-html";
 
 import Axios from 'axios';
@@ -86,13 +86,13 @@ const useForm3 = (callback, validate) => {
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
 
-        Axios.post('http://localhost:5000/posts', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
+        Axios.post('http://localhost:8080/posts', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
           headers: { accessToken: localStorage.getItem("accessToken") },
         }).then((response) => {
           window.location.href = '/write';
         });
 
-        Axios.post('http://localhost:5000/posts/visitors', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
+        Axios.post('http://localhost:8080/posts/visitors', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
           headers: { accessToken: localStorage.getItem("accessToken") },
         }).then((response) => {
           window.location.href = '/write';

@@ -30,13 +30,13 @@ const EditPost = (submitForm) => {
   const [startDate, setStartDate] = useState(new Date());
   const [postText, setPostText] = useState("");
   // const postText = stateToHTML(editorState.getCurrentContent());
-  
+
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/posts/byId/${id}`).then((response) => {
+    axios.get(`http://localhost:8080/posts/byId/${id}`).then((response) => {
       const blocksFromHtml = convertFromHTML(response.data.postText);
       const contentState = ContentState.createFromBlockArray(blocksFromHtml.contentBlocks,
-        blocksFromHtml.entityMap,)
+        blocksFromHtml.entityMap)
       setTopic(response.data.topic);
       setCover(response.data.cover);
       setTitle(response.data.title);
@@ -45,7 +45,7 @@ const EditPost = (submitForm) => {
       setStartDate(response.data.startDate);
       setEditorState(EditorState.createWithContent(contentState));
       setPostObject(response.data);
-      
+
 
     });
 
@@ -55,7 +55,7 @@ const EditPost = (submitForm) => {
     const uploadFile = e.target.files[0];
     const base64 = await convertBase64(uploadFile);
     setCover(base64);
-    console.log( cover);
+    console.log(cover);
   }
 
   const convertBase64 = (file) => {
@@ -82,7 +82,7 @@ const EditPost = (submitForm) => {
 
   // const editPost = () => {
   //   if (Object.keys(errors).length === 0) {
-  //     axios.put(`http://localhost:5000/posts/${id}`, {
+  //     axios.put(`http://localhost:8080/posts/${id}`, {
   //       topic: topic,
   //       startDate: startDate,
   //       location: location,
@@ -103,7 +103,7 @@ const EditPost = (submitForm) => {
 
 
     axios.put(
-      "http://localhost:5000/posts/title",
+      "http://localhost:8080/posts/title",
       {
         newTitle: title,
         id: id,
@@ -114,7 +114,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://localhost:5000/posts/topic",
+      "http://localhost:8080/posts/topic",
       {
         newTopic: topic,
         id: id,
@@ -125,7 +125,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://localhost:5000/posts/location",
+      "http://localhost:8080/posts/location",
       {
         newLocation: location,
         id: id,
@@ -136,7 +136,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://localhost:5000/posts/startDate",
+      "http://localhost:8080/posts/startDate",
       {
         newStartDate: startDate,
         id: id,
@@ -147,7 +147,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://localhost:5000/posts/cover",
+      "http://localhost:8080/posts/cover",
       {
         newCover: cover,
         id: id,
@@ -158,7 +158,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://localhost:5000/posts/postText",
+      "http://localhost:8080/posts/postText",
       {
         newPostText: postText,
         id: id,

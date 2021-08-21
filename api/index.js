@@ -27,7 +27,7 @@ app.use("/auth", usersRouter);
 const signatureRouter = require("./routes/Signatures");
 app.use("/signatures", signatureRouter);
 
-const PORT = 5000;
+const PORT = 8080;
 
 db.sequelize.sync().then(() => {
     app.listen(PORT, () => {
