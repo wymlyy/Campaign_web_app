@@ -17,19 +17,19 @@ export default function Profile() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://3.16.1.56:8080/auth/basicinfo/${id}`).then((response) => {
+    axios.get(`http://campaignwithus.ml:8080/auth/basicinfo/${id}`).then((response) => {
       setUsername(response.data.username);
       setAvatar(response.data.avatar);
     });
 
-    axios.get(`http://3.16.1.56:8080/posts/byUserId/${id}`).then((response) => {
+    axios.get(`http://campaignwithus.ml:8080/posts/byUserId/${id}`).then((response) => {
       setListOfPosts(response.data);
     });
   }, []);
 
   const deletePost = (id) => {
     axios
-      .delete(`http://3.16.1.56:8080/posts/${id}`, {
+      .delete(`http://campaignwithus.ml:8080/posts/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -40,7 +40,7 @@ export default function Profile() {
 
   const changeAvatar = () => {
     axios.put(
-      "http://3.16.1.56:8080/auth/avatar",
+      "http://campaignwithus.ml:8080/auth/avatar",
       {
         newAvatar: avatar,
         username: username,

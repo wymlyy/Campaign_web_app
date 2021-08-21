@@ -11,7 +11,7 @@ function FormLogin() {
     const login = (e) => {
         e.preventDefault();
         const data = { username: username, password: password };
-        axios.post("http://3.16.1.56:8080/auth/login", data).then((response) => {
+        axios.post("http://campaignwithus.ml:8080/auth/login", data).then((response) => {
             if (response.data.error) {
                 alert(response.data.error);
             } else {
@@ -28,7 +28,7 @@ function FormLogin() {
         });
     };
     return (
-        
+
         <div className="form-content-right">
             <form className='form'>
                 <h1>
@@ -57,8 +57,8 @@ function FormLogin() {
                     Don't have an account? Signup <Link to='/sign-up'>here</Link>
                 </span>
             </form>
-            </div>
-            
+        </div>
+
     );
 }
 

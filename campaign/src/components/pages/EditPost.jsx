@@ -33,7 +33,7 @@ const EditPost = (submitForm) => {
 
 
   useEffect(() => {
-    axios.get(`http://3.16.1.56:8080/posts/byId/${id}`).then((response) => {
+    axios.get(`http://campaignwithus.ml:8080/posts/byId/${id}`).then((response) => {
       const blocksFromHtml = convertFromHTML(response.data.postText);
       const contentState = ContentState.createFromBlockArray(blocksFromHtml.contentBlocks,
         blocksFromHtml.entityMap)
@@ -82,7 +82,7 @@ const EditPost = (submitForm) => {
 
   // const editPost = () => {
   //   if (Object.keys(errors).length === 0) {
-  //     axios.put(`http://3.16.1.56:8080/posts/${id}`, {
+  //     axios.put(`http://campaignwithus.ml:8080/posts/${id}`, {
   //       topic: topic,
   //       startDate: startDate,
   //       location: location,
@@ -103,7 +103,7 @@ const EditPost = (submitForm) => {
 
 
     axios.put(
-      "http://3.16.1.56:8080/posts/title",
+      "http://campaignwithus.ml:8080/posts/title",
       {
         newTitle: title,
         id: id,
@@ -114,7 +114,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://3.16.1.56:8080/posts/topic",
+      "http://campaignwithus.ml:8080/posts/topic",
       {
         newTopic: topic,
         id: id,
@@ -125,7 +125,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://3.16.1.56:8080/posts/location",
+      "http://campaignwithus.ml:8080/posts/location",
       {
         newLocation: location,
         id: id,
@@ -136,7 +136,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://3.16.1.56:8080/posts/startDate",
+      "http://campaignwithus.ml:8080/posts/startDate",
       {
         newStartDate: startDate,
         id: id,
@@ -147,7 +147,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://3.16.1.56:8080/posts/cover",
+      "http://campaignwithus.ml:8080/posts/cover",
       {
         newCover: cover,
         id: id,
@@ -158,7 +158,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://3.16.1.56:8080/posts/postText",
+      "http://campaignwithus.ml:8080/posts/postText",
       {
         newPostText: postText,
         id: id,
