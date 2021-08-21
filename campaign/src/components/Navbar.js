@@ -32,7 +32,7 @@ function Navbar() {
   useEffect(() => {
     showButton();
 
-    axios.get("http://campaignwithus.ml:8080/auth/verification", {
+    axios.get("https://campaignwithus.ml:8080/auth/verification", {
 
       headers: {
         accessToken: localStorage.getItem("accessToken"),
@@ -48,7 +48,7 @@ function Navbar() {
           id: response.data.id,
           status: true,
         });
-        axios.get(`http://campaignwithus.ml:8080/auth/basicinfo/${response.data.id}`).then((response) => {
+        axios.get(`https://campaignwithus.ml:8080/auth/basicinfo/${response.data.id}`).then((response) => {
           if (response.data != null) {
             setAvatar(response.data.avatar);
           }

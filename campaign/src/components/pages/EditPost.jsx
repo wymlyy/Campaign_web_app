@@ -103,7 +103,7 @@ const EditPost = (submitForm) => {
 
 
     axios.put(
-      "http://campaignwithus.ml:8080/posts/title",
+      "https://campaignwithus.ml:8080/posts/title",
       {
         newTitle: title,
         id: id,
@@ -114,7 +114,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://campaignwithus.ml:8080/posts/topic",
+      "https://campaignwithus.ml:8080/posts/topic",
       {
         newTopic: topic,
         id: id,
@@ -125,7 +125,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://campaignwithus.ml:8080/posts/location",
+      "https://campaignwithus.ml:8080/posts/location",
       {
         newLocation: location,
         id: id,
@@ -136,7 +136,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://campaignwithus.ml:8080/posts/startDate",
+      "https://campaignwithus.ml:8080/posts/startDate",
       {
         newStartDate: startDate,
         id: id,
@@ -147,7 +147,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://campaignwithus.ml:8080/posts/cover",
+      "https://campaignwithus.ml:8080/posts/cover",
       {
         newCover: cover,
         id: id,
@@ -158,7 +158,7 @@ const EditPost = (submitForm) => {
     )
 
     axios.put(
-      "http://campaignwithus.ml:8080/posts/postText",
+      "https://campaignwithus.ml:8080/posts/postText",
       {
         newPostText: postText,
         id: id,

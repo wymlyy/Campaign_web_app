@@ -20,14 +20,14 @@ export default function Campaigns() {
   useEffect(() => {
 
     if (!localStorage.getItem("accessToken")) {
-      axios.get("http://campaignwithus.ml:8080/posts/visitors").then((response) => {
+      axios.get("https://campaignwithus.ml:8080/posts/visitors").then((response) => {
         setListOfPosts(response.data.listOfPosts);
         setSignedPosts(response.data.signedPosts.map((sign) => {
           return sign.PostId;
         }))
       });
     } else {
-      axios.get("http://campaignwithus.ml:8080/posts", {
+      axios.get("https://campaignwithus.ml:8080/posts", {
         headers: { accessToken: localStorage.getItem("accessToken") },
       }).then((response) => {
         setListOfPosts(response.data.listOfPosts);
@@ -39,7 +39,7 @@ export default function Campaigns() {
   }, []);
 
   const signAPost = (postId) => {
-    axios.post("http://campaignwithus.ml:8080/signatures", {
+    axios.post("https://campaignwithus.ml:8080/signatures", {
       PostId: postId
     },
       { headers: { accessToken: localStorage.getItem("accessToken") } }
