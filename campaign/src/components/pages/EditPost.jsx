@@ -33,7 +33,7 @@ const EditPost = (submitForm) => {
 
 
   useEffect(() => {
-    axios.get(`http://campaignwithus.ml:8080/posts/byId/${id}`).then((response) => {
+    axios.get(`https://campaignwithus.ml:8080/posts/byId/${id}`).then((response) => {
       const blocksFromHtml = convertFromHTML(response.data.postText);
       const contentState = ContentState.createFromBlockArray(blocksFromHtml.contentBlocks,
         blocksFromHtml.entityMap)
