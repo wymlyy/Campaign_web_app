@@ -9,7 +9,7 @@ function ChangePassword() {
     const changePassword = () => {
         axios
             .put(
-                "http://localhost:8080/auth/changepassword",
+                "http://3.16.1.56:8080/auth/changepassword",
                 {
                     oldPassword: oldPassword,
                     newPassword: newPassword,
