@@ -38,9 +38,12 @@ function MyProfile() {
       {
         headers: { accessToken: localStorage.getItem("accessToken") },
       }
-    )
-    setIsOpen(!isOpen);
-    window.location.href = '/my-profile';
+    ).then(() => {
+      setIsOpen(!isOpen);
+      window.location.href = '/my-profile';
+    })
+
+
   }
 
   const handleFile = async (e) => {

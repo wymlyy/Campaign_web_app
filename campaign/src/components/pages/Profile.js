@@ -48,8 +48,12 @@ export default function Profile() {
       {
         headers: { accessToken: localStorage.getItem("accessToken") },
       }
-    )
-    setIsOpen(!isOpen);
+    ).then(() => {
+      setIsOpen(!isOpen);
+      window.location.href = '/my-profile';
+    })
+
+
   }
 
   const handleFile = async (e) => {
