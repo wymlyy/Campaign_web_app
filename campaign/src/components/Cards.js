@@ -121,7 +121,7 @@ function Cards() {
 
                 <div className='homeCard2' key={key}>
                   <CardItem key={key}
-                    src='images/img-9.jpg'
+                    src={value.cover ? value.cover : 'images/img-9.jpg'}
                     title={value.title}
                     text={value.postText.length > 110 ? ReactHtmlParser(value.postText.substring(0, 110)
                       .replace(/<p>|<\/p>|<ul>|<\/ul>|<ol>|<\/ol>|<li>|<\/li>|<br>|<\/br>|<em>|<\/em>/g, '') + "...") :
