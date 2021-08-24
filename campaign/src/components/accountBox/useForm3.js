@@ -7,7 +7,7 @@ import Axios from 'axios';
 const useForm3 = (callback, validate) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [startDate, setStartDate] = useState(new Date());
-
+  const active = "false";
   const postText = stateToHTML(editorState.getCurrentContent());
 
 
@@ -61,6 +61,7 @@ const useForm3 = (callback, validate) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     setErrors(validate(values, postText));
     setIsSubmitting(true);
 
@@ -84,13 +85,13 @@ const useForm3 = (callback, validate) => {
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
 
-        Axios.post('http://campaignwithus.ml:8080/posts', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
+        Axios.post('http://campaignwithus.ml:8080/posts', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover, isActive: active }, {
           headers: { accessToken: localStorage.getItem("accessToken") },
         }).then((response) => {
           window.location.href = '/write';
         });
 
-        Axios.post('http://campaignwithus.ml:8080/posts/visitors', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover }, {
+        Axios.post('http://campaignwithus.ml:8080/posts/visitors', { topic: values.topic, startDate: startDate, location: values.location, username: values.username, title: values.title, postText: postText, cover: cover, isActive: active }, {
           headers: { accessToken: localStorage.getItem("accessToken") },
         }).then((response) => {
           window.location.href = '/write';

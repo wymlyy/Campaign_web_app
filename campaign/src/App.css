@@ -267,6 +267,10 @@
   background-color: #000;
 }
 
+#adminId .navbar, #adminPostId .navbar {
+  display: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

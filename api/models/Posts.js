@@ -28,7 +28,12 @@ module.exports = (sequelize, DataTypes) => {
         cover: {
             type: DataTypes.STRING,
             allowNull: true,
+        },
+        isActive: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
+
     });
 
     Posts.associate = (models) => {
@@ -39,8 +44,9 @@ module.exports = (sequelize, DataTypes) => {
         Posts.hasMany(models.Signatures, {
             onDelete: "cascade",
         });
+        
     };
 
-   
+
     return Posts;
 }

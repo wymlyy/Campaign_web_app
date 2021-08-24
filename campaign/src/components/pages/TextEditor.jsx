@@ -10,7 +10,7 @@ import useForm3 from "../accountBox/useForm3";
 
 
 const TextEditor = (submitForm) => {
-  const { handleChange, handleSubmit, onEditorStateChange, handleTime, handleFile, cover, startDate, editorState, postText, values, errors } = useForm3(
+  const { handleChange, handleSubmit, onEditorStateChange, handleTime, handleFile, cover, active, startDate, editorState, postText, values, errors } = useForm3(
     submitForm,
     validate
   );
@@ -32,6 +32,7 @@ const TextEditor = (submitForm) => {
 
   return (
     <div>
+      {console.log(active)}
       <form id='postForm' onSubmit={handleSubmit}>
         <h1 className='postPageTitle'>Create Your Own Campaign !</h1>
         <div className='selectInfo'>
@@ -48,6 +49,7 @@ const TextEditor = (submitForm) => {
             </select>
             {errors.topic && <p className='errors'>{errors.topic}</p>}
           </div>
+          
           <div className='selectTime'>
             <label>Select Date and Time:</label>
 

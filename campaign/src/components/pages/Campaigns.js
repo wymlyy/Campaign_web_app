@@ -30,6 +30,7 @@ export default function Campaigns() {
       axios.get("http://campaignwithus.ml:8080/posts", {
         headers: { accessToken: localStorage.getItem("accessToken") },
       }).then((response) => {
+        console.log(response);
         setListOfPosts(response.data.listOfPosts);
         setSignedPosts(response.data.signedPosts.map((sign) => {
           return sign.PostId;
@@ -95,44 +96,49 @@ export default function Campaigns() {
             <ul className='cards__items_campaign'>
               {listOfPosts.reverse().slice(currentPage, currentPage + postsPerPage).map((value, key) => {
                 return (
+                  <>
+                    {value.isActive === "true" && (<>
+                      <div className='campaignCard' key={key}>
 
-                  <div className='campaignCard' key={key}>
-                    <CardItem key={key}
-                      src={value.cover ? value.cover : 'images/img-9.jpg'}
-                      title={value.title}
-                      text={value.postText.length > 80 ?
-                        ReactHtmlParser(value.postText.substring(0, 80)
-                          .replace(/<p>|<\/p>|<ul>|<\/ul>|<ol>|<\/ol>|<li>|<\/li>|<br>|<\/br>|<em>|<\/em>/g, '') + "...") :
-                        ReactHtmlParser(value.postText
-                          .replace(/<p>|<\/p>|<ul>|<\/ul>|<ol>|<\/ol>|<li>|<\/li>|<br>|<\/br>|<em>|<\/em>/g, ''))}
-                      topic={value.topic}
-                      username={value.username}
-                      dateTime={moment(value.createdAt).format("DD-MM-YYYY HH:mm:ss")}
-                      path={`/post/${value.id}`}
-                      prof={`/profile/${value.UserId}`}
-                    />
-                    <div className='signContainer'>
-                      {localStorage.getItem("accessToken") ? (
-                        <div>
-                          {!signedPosts.includes(value.id) ? (<button className='btnSign' onClick={() => {
-                            signAPost(value.id);
-                          }}>Sign</button>) :
-                            (<button className='btnSigned' onClick={() => {
-                              signAPost(value.id);
-                            }}>Signed</button>)}
-                          <label className='signNo'>{value.Signatures.length}</label>
+                        <CardItem key={key}
+                          src={value.cover ? value.cover : 'images/img-9.jpg'}
+                          title={value.title}
+                          text={value.postText.length > 80 ?
+                            ReactHtmlParser(value.postText.substring(0, 80)
+                              .replace(/<p>|<\/p>|<ul>|<\/ul>|<ol>|<\/ol>|<li>|<\/li>|<br>|<\/br>|<em>|<\/em>/g, '') + "...") :
+                            ReactHtmlParser(value.postText
+                              .replace(/<p>|<\/p>|<ul>|<\/ul>|<ol>|<\/ol>|<li>|<\/li>|<br>|<\/br>|<em>|<\/em>/g, ''))}
+                          topic={value.topic}
+                          username={value.username}
+                          dateTime={moment(value.createdAt).format("DD-MM-YYYY HH:mm:ss")}
+                          path={`/post/${value.id}`}
+                          prof={`/profile/${value.UserId}`}
+                        />
+                        <div className='signContainer'>
+                          {localStorage.getItem("accessToken") ? (
+                            <div>
+                              {!signedPosts.includes(value.id) ? (<button className='btnSign' onClick={() => {
+                                signAPost(value.id);
+                              }}>Sign</button>) :
+                                (<button className='btnSigned' onClick={() => {
+                                  signAPost(value.id);
+                                }}>Signed</button>)}
+                              <label className='signNo'>{value.Signatures.length}</label>
+                            </div>
+                          ) :
+                            (
+                              <div>
+                                <button className='btnSign' onClick={vistorClick}>Sign</button>
+                                <label className='signNo'>{value.Signatures.length}</label>
+                              </div>
+                            )}
                         </div>
-                      ) :
-                        (
-                          <div>
-                            <button className='btnSign' onClick={vistorClick}>Sign</button>
-                            <label className='signNo'>{value.Signatures.length}</label>
-                          </div>
-                        )}
-                    </div>
 
-                  </div>
 
+
+                      </div>
+                    </>)}
+                  </>
                 )
               })}
             </ul>

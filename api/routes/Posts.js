@@ -14,7 +14,7 @@ router.get("/", validateToken, async (req, res) => {
 router.get("/visitors", async (req, res) => {
   const listOfPosts = await Posts.findAll({ include: [Signatures] });
   const signedPosts = await Signatures.findAll();
-  res.json({ listOfPosts: listOfPosts.reverse(), signedPosts: signedPosts });
+  res.json({listOfPosts: listOfPosts.reverse(), signedPosts: signedPosts });
 });
 
 router.get('/byId/:id', async (req, res) => {
@@ -22,7 +22,6 @@ router.get('/byId/:id', async (req, res) => {
   const post = await Posts.findByPk(id);
   res.json(post);
 });
-
 
 
 router.post("/", validateToken, async (req, res) => {
@@ -116,6 +115,14 @@ router.put("/cover", validateToken, async (req, res) => {
     cover: newCover,
   }, { where: { id: id } });
   res.json(newCover);
+});
+
+router.put("/isActive", async (req, res) => {
+  const { newActive, id } = req.body;
+  await Posts.update({
+    isActive: newActive,
+  }, { where: { id: id } });
+  res.json(newActive);
 });
 
 router.get("/byUserId/:id", async (req, res) => {

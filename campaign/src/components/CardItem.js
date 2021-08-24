@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 function CardItem(props) {
+ 
   return (
     <>
       <li className='cards__item'>
@@ -29,7 +30,9 @@ function CardItem(props) {
         </Link>
       </li>
     </>
-  );
+  )
+   
+
 }
 
 export default CardItem;

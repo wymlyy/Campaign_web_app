@@ -16,6 +16,10 @@ import sucessForm from './components/accountBox/FormSuccess';
 import ChangePassword from './components/pages/ChangePassword';
 import { AuthContext } from "./Context/AuthContext";
 import axios from 'axios';
+import Admin from './components/pages/Admin';
+import AdminPost from './components/pages/AdminPost';
+
+
 
 
 function App() {
@@ -56,6 +60,7 @@ function App() {
             <Route path='/' exact component={Home} />
             <Route path='/campaigns' exact component={Campaigns} />
             <Route path='/post/:id' exact component={Post} />
+            <Route path='/admin-post/:id' exact component={AdminPost} />
             {!authState.status && <Route path='/sign-up' exact component={SignUp} />}
             {!authState.status && <Route path='/login' exact component={Login} />}
             <Route path='/my-profile' exact component={MyProfile} > {authState.status ? (<MyProfile />) : (<Login />)}</Route>
@@ -64,6 +69,8 @@ function App() {
             <Route path='/write' exact component={Write} >{authState.status ? (<Write />) : (<Login />)}</Route>
             <Route path='/success-form' exact component={sucessForm} />
             <Route path='/edit-post/:id' exact component={EditPost} >{authState.status ? (<EditPost />) : (<Login />)}</Route>
+            <Route path='/admin' exact component={Admin} />
+
           </Switch>
         </Router>
       </AuthContext.Provider>

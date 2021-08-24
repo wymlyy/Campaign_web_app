@@ -9,17 +9,20 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import moment from 'moment';
 
-export default function Post() {
+export default function AdminPost() {
+    document.body.id = 'adminPostId';
     let { id } = useParams();
     const [postObject, setPostObject] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const { authState } = useContext(AuthContext);
     const dateStart = moment(postObject.startDate).format("DD-MM-YYYY HH:mm");
+    const [active, setActive] = useState('');
 
 
     useEffect(() => {
         axios.get(`http://campaignwithus.ml:8080/posts/byId/${id}`).then((response) => {
+            setActive(response.data.isActive);
             setPostObject(response.data);
             console.log(response.data);
         });
@@ -81,9 +84,19 @@ export default function Post() {
         window.location.href = '/login';
     };
 
-    const editPost = () => {
-        window.location.href = `/edit-post/${id}`;
+    const approvePost = () => {
+        axios.put(
+            "http://campaignwithus.ml:8080/posts/isActive",
+            {
+                newActive: "true",
+                id: id,
+            }
+        )
+        alert("You have approved the post successfully!");
+        window.location.href = `/admin-post/${id}`;
     };
+
+
 
     // const editPost = (option) => {
     //     if (option === "title") {
@@ -113,39 +126,39 @@ export default function Post() {
                                 <div className='postTopic'>Topic: {postObject.topic}
                                 </div>
                                 <div className='postLocation'>Location: {postObject.location}</div>
-                            </div>
+                            </div >
                             <div className='lineTwo'>
                                 <div className='postAuthor'>Author: {postObject.username}</div>
                                 <div className='postDate'>Start Time: {dateStart}</div>
 
                             </div>
-                        </div>
+                        </div >
 
-                    </div>
-                </div>
+                    </div >
+                </div >
                 <div className='postComment'>
                     <div className='modifyPost'>
                         <div className="deletePost">
-                            {authState.username === postObject.username && (
+                            {postObject.isActive !== "true" && (
                                 <button className='deletePostBtn'
-                                    onClick={() => {
-                                        editPost(postObject.id);
-                                    }}
+                                    onClick={approvePost}
                                 >
-                                    Edit Post
+                                    Approve
                                 </button>
                             )}
+
+
                         </div>
                         <div className="deletePost">
-                            {authState.username === postObject.username && (
-                                <button className='deletePostBtn'
-                                    onClick={() => {
-                                        deletePost(postObject.id);
-                                    }}
-                                >
-                                    Delete Post
-                                </button>
-                            )}
+
+                            <button className='deletePostBtn'
+                                onClick={() => {
+                                    deletePost(postObject.id);
+                                }}
+                            >
+                                Delete Post
+                            </button>
+
                         </div>
                     </div>
 
@@ -186,7 +199,7 @@ export default function Post() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             <Footer />
         </>
     );
