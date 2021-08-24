@@ -4,6 +4,7 @@ import { EditorState, convertToRaw, ContentState, convertFromRaw, convertFromHTM
 import DatePicker from "react-datepicker";
 import { AuthContext } from '../../Context/AuthContext';
 import { useParams } from 'react-router-dom';
+import { stateToHTML } from "draft-js-export-html";
 import axios from "axios";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
@@ -29,7 +30,7 @@ const EditPost = (submitForm) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [startDate, setStartDate] = useState(new Date());
   const [postText, setPostText] = useState("");
-  // const postText = stateToHTML(editorState.getCurrentContent());
+  //const postText = stateToHTML(editorState.getCurrentContent());
 
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const EditPost = (submitForm) => {
       setCover(response.data.cover);
       setTitle(response.data.title);
       setLocation(response.data.location);
-      setPostText(response.data.postText);
+      // setPostText(response.data.postText);
       setStartDate(response.data.startDate);
       setEditorState(EditorState.createWithContent(contentState));
       setPostObject(response.data);
@@ -77,7 +78,7 @@ const EditPost = (submitForm) => {
 
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState);
-
+    setPostText(stateToHTML(editorState.getCurrentContent()));
   };
 
   // const editPost = () => {
