@@ -24,6 +24,7 @@ function ChangePassword() {
                 if (response.data.error) {
                     alert(response.data.error);
                 }
+                alert("Password has changed successfully!");
                 window.location.href = '/changepassword';
             });
     };
