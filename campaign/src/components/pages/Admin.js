@@ -117,7 +117,7 @@ export default function Admin() {
           <div className='cards__wrapper' >
 
             <ul className='cards__items_campaign'>
-              {listOfPosts.reverse().slice(currentPage, currentPage + postsPerPage).map((value, key) => {
+              {listOfPosts.slice(currentPage, currentPage + postsPerPage).map((value, key) => {
                 return (
 
                   <div className='campaignCard' key={key}>
