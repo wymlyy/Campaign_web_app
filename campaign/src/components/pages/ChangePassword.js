@@ -24,6 +24,7 @@ function ChangePassword() {
                 if (response.data.error) {
                     alert(response.data.error);
                 }
+                window.location.href = '/changepassword';
             });
     };
 

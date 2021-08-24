@@ -79,7 +79,7 @@ function Cards() {
               return (
                 <div className='homeCard' key={key}>
                   <CardItem key={key}
-                    src='images/img-9.jpg'
+                    src={value.cover ? value.cover : 'images/img-9.jpg'}
                     title={value.title}
                     text={value.postText.length > 180 ?
                       ReactHtmlParser(value.postText.substring(0, 180)
